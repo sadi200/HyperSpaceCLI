@@ -69,7 +69,7 @@ EOF
     echo "🔄 Downloading the required model..."
 
     while true; do
-        aios-cli models add hf:TheBloke/Mistral-7B-Instruct-v0.1-GGUF:mistral-7b-instruct-v0.1.Q4_K_S.gguf | tee /root/model_download.log
+        aios-cli hive infer --model hf:TheBloke/Mistral-7B-Instruct-v0.1-GGUF:mistral-7b-instruct-v0.1.Q4_K_S.gguf --prompt "Can you explain how to write an HTTP server in Rust?" | tee /root/model_download.log
 
         if grep -q "Download complete" /root/model_download.log; then
             echo "✅ Model downloaded successfully!"
